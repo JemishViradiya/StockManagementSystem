@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Portfolio>
+@using Microsoft.AspNetCore.Http;
+
+<head>
+    <link rel="stylesheet" href="~/css/Style.css" />
+</head>
+@if (Context.Session.GetInt32("customer_id") != null)
+{
+<div class="container-main">
+    
+    <div class="features">
+        <a asp-action="Index" asp-controller="Portfolio">Portfolio</a>
+        <a asp-action="Index" asp-controller="Stock">Add Stocks</a>
+        <a asp-action="Watchlist" asp-controller="Customer">Watchlist</a>
+        <a asp-action="Index" asp-controller="Order">View Order</a>
+        <a asp-action="Logout" asp-controller="Customer">Logout</a>
+
+    </div>
+    <div class="card">
+
+        @if (Model.Count() != 0)
+        {
+
+            <table>
+                <tr>
+                    <th>
+                        Stock Name
+                    </th>
+                    <th>
+                        Stock Price
+                    </th>
+                    <th>
+                        Stock Quantity
+                    </th>
+                    <th>
+                        Action
+                    </th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(model => item.Stock.stock_name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => item.Stock.stock_price)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => item.portfolio_size)
+                        </td>
+                        <td>
+                   
+                            <a asp-action="Delete" asp-route-id="@item.portfolio_id">Remove</a>
+                        </td>
+                    </tr>
+                }
+            </table>
+        }
+        else
+        {
+            <h1>You Don't have any stocks </h1>
+        }
+    </div>
+</div>
+}
+
+
+
+

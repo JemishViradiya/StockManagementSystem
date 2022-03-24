@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Stock>
+@using Microsoft.AspNetCore.Http;
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+    <link rel="stylesheet" href="~/css/Style.css" />
+</head>
+<div class="container-main">
+    <div class="features">
+        @if (Context.Session.GetString("customer_id") != null)
+        {
+            <a asp-action="Index" asp-controller="Portfolio">Portfolio</a>
+            <a asp-action="Index" asp-controller="Stock">Stocks</a>
+            <a asp-action="Index" asp-controller="Order">Order</a>
+            <a asp-action="Logout" asp-controller="Customer">Logout</a>
+            
+        }
+        else
+        {
+        <a asp-action="Index">HOME</a>
+        <a asp-action="Index" asp-controller="Login">LOGIN</a>
+        }
+    </div>
+    <div class="card">
+        <table>
+            <tr>
+                <th>Stock Name</th>
+                <th>Stock Price</th>
+                @if (Context.Session.GetString("customer_id") != null)
+                {
+                    <th>Action</th>
+                }
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modleitem => item.stock_name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelitem => item.stock_price)
+                    </td>
+
+                    @if (Context.Session.GetString("customer_id") != null)
+                    {
+                        <td>
+                            <div class="actions">
+                                <a asp-action="Buy" asp-controller="Customer" asp-route-id="@item.stock_id">Buy</a>
+                            </div>
+                        </td>
+                    }
+                </tr>
+            }
+            </table>
+
+    </div>
+</div>

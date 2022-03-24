@@ -1,0 +1,97 @@
+﻿* {
+    font-family: 'Roboto', sans-serif;
+}
+
+td {
+    padding: 5px
+}
+
+table {
+    
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+    padding: 10px;
+    margin-top:10px;
+}
+
+th, td {
+    text-align: left;
+}
+
+th {
+    background-color: #00264d;
+    color: white;
+    padding: 10px;
+    font-size: 13px;
+}
+
+td {
+    text-align: left;
+    padding: 10px;
+    background-color: #385273;
+    color: white;
+    font-size: 13px
+}
+
+    td a {
+        color: white;
+    }
+
+.container-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 30%;
+    width: 50%;
+   
+    border-radius:5px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #ae768f;
+    width: 100%
+}
+
+tr:first-child td {
+    text-align: center;
+    font-size: 15px;
+    background-color: #ae768f
+}
+
+.homeButton {
+    margin-top: -15px;
+    margin-left: 15px;
+    padding: 15px 6px 6px 6px;
+    border-radius: 0 0 5px 5px;
+    background-color: #00264d;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+    .homeButton a {
+        text-decoration: none;
+        color: white;
+    }
+.actions {
+    padding: 10px 0px 10px;
+}
+
+    .actions a {
+        background-color: #002655;
+        padding: 10px;
+        border-radius: 5px;
+        text-decoration: none;
+    }
+
+a:hover {
+    color: white;
+    text-decoration: none;
+}

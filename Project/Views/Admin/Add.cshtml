@@ -1,0 +1,54 @@
+﻿@model Stock
+
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<header>
+    <link rel="stylesheet" href="~/css/login.css" />
+</header>
+<form action="Add" method="post">
+    <div class="container-main">
+        <div class="card">
+            <div class="homeButton">
+                <a asp-action="Index" asp-controller="Admin">Home</a>
+            </div>
+            <table>
+                <tr>
+                    <td>
+                        Stock Name
+                    </td>
+                    <td>
+                        <input type="text" name="stock_name" required>
+                        @Html.ValidationMessageFor(model => model.stock_name)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Stock Price
+                    </td>
+                    <td>
+                        <input type="number" name="stock_price" required />
+                        @Html.ValidationMessageFor(model => model.stock_price)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Stock Quantity
+                    </td>
+                    <td>
+                        <input type="number" name="stock_quantity" required />
+                        @Html.ValidationMessageFor(model => model.stock_quantity)
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" value="Add" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+   
+</form>

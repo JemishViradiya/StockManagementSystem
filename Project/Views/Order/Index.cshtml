@@ -1,0 +1,77 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model IEnumerable<Order>
+
+@using Microsoft.AspNetCore.Http;
+<head>
+    <link rel="stylesheet" href="~/css/Style.css" />
+</head>
+<div class="container-main" style="width:55% !important; margin-left:22.5% !important">
+    <div class="features">
+        <a asp-action="Index" asp-controller="Portfolio">Portfolio</a>
+        <a asp-action="Index" asp-controller="Stock">Add Stocks</a>
+        <a asp-action="Watchlist" asp-controller="Customer">Watchlist</a>
+        <a asp-action="Index" asp-controller="Order">View Order</a>
+        <a asp-action="Logout" asp-controller="Customer">Logout</a>
+    </div>
+    <div class="card">
+        <table>
+            <tr>
+                <th>
+                    Order Date
+                </th>
+                <th>
+                    Stock Name
+                </th>
+                <th>
+                    Stock Price
+                </th>
+                <th>
+                    Total Amount
+                </th>
+                <th>
+                    Total Quantity
+                </th>
+                <th>
+                    Status
+                </th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(model => item.orderDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => item.stock.stock_name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => item.stock.stock_price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => item.totalAmount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => item.quantity)
+                    </td>
+                    <td >
+                        @Html.DisplayFor(model => item.status)
+
+                        @if (item.status == "Payment Pending")
+                        {
+                        <div class="actions">
+                            <a asp-action="Payment" asp-route-id="@item.id">Do Payment</a>
+                            <a asp-action="Delete" asp-route-id="@item.id">Delete Order</a>
+                            <a asp-action="Modify" asp-route-id="@item.id">Modify Order</a>
+                        </div>
+                        }
+                    </td>
+                    
+                </tr>
+            }
+        </table>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+﻿@using Microsoft.AspNetCore.Http; 
+
+
+  @if(Context.Session.GetString("email")!=null)
+  {
+      <h1>Welcome @Context.Session.GetString("customer_name")</h1> 
+  }
+
+
+
+
+
+ 

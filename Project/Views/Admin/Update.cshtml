@@ -1,0 +1,51 @@
+﻿
+@model Customer
+    <header>
+        <link rel="stylesheet" href="~/css/login.css" />
+    </header>
+<form action="Update" method="post">
+    <div class="container-main">
+        <div class="card">
+            <div class="homeButton">
+                <a asp-action="Index" asp-controller="Admin">Home</a>
+            </div>
+            <table>
+                <tr>
+                    <td colspan="2">
+                        <input type="hidden" name="customer_id" value="@Model.customer_id" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Customer Name
+                    </td>
+                    <td>
+                        <input type="text" name="customer_name" value="@Model.customer_name" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Customer Email
+                    </td>
+                    <td>
+                        <input type="email" name="customer_email" value="@Model.customer_email" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Customer Number
+                    </td>
+                    <td>
+                        <input type="text" name="contact_number" value="@Model.contact_number" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" value="UPDATE" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+   
+</form>

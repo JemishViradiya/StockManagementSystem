@@ -1,0 +1,89 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Order
+<header>
+    <link rel="stylesheet" href="~/css/login.css" />
+</header>
+<form action="Payment" method="post">
+    <input type="hidden" name="order_id" value="@Model.id" />
+    <div class="container-main">
+        <div class="card">
+            <div class="homeButton">
+                <a asp-action="Index" asp-controller="Order">Home</a>
+            </div>
+            <table>
+
+                <tr>
+                    <td>
+                        Total Amount
+                    </td>
+                    <td>
+                        <input type="text" name="totalAmount" value="@Model.totalAmount" readonly />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Stock Name
+                    </td>
+                    <td>
+                        <input type="text" name="order.stock.stock_name" value="@Model.stock.stock_name" readonly />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Total Quantity
+                    </td>
+                    <td>
+                        <input type="number" name="order.quantity" value="@Model.quantity" readonly />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Card Holder Name
+                    </td>
+                    <td>
+                        <input type="text" name="payment_type" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Card Number
+                    </td>
+                    <td>
+                        <input type="text" name="card_number" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        CVV
+                    </td>
+                    <td>
+                        <input type="number" name="card_cvv" placeholder="890" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+
+                        Card Expiry
+                    </td>
+                    <td>
+                        <input type="date" name="card_expiry" placeholder="MM/YY" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" value="PAY" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

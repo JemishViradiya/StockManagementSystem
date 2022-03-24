@@ -1,0 +1,53 @@
+﻿@model Project.Models.Stock
+
+@{
+    ViewData["Title"] = "Modify";
+}
+
+<header>
+    <link rel="stylesheet" href="~/css/login.css" />
+</header>
+<form action="Modify" method="post">
+    <input type="hidden" name="stock_id" value="@Model.stock_id" />
+    <div class="container-main">
+        <div class="card">
+            <div class="homeButton">
+                <a asp-action="Index" asp-controller="Admin">Home</a>
+            </div>
+            <table>
+                <tr>
+                    <td>
+                        Stock Name
+                    </td>
+                    <td>
+                        <input type="text" name="stock_name" value="@Model.stock_name" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Stock Price
+                    </td>
+                    <td>
+                        <input type="number" name="stock_price" value="@Model.stock_price" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Stock Quantity
+                    </td>
+                    <td>
+                        <input type="number" name="stock_quantity" value="@Model.stock_quantity" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" value="Modify" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</form>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

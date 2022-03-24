@@ -1,0 +1,70 @@
+﻿@model Project.Models.Order
+
+@{
+    ViewData["Title"] = "Modify";
+}
+
+
+<header>
+    <link rel="stylesheet" href="~/css/login.css" />
+</header>
+<form method="post" action="Modify">
+    <input type="hidden" name="id" value="@Model.id" />
+    <div class="container-main">
+        <div class="card">
+            <div class="homeButton">
+                <a asp-action="Index" asp-controller="Order">Home</a>
+            </div>
+            <table>
+
+                <tr>
+                    <td><input type="hidden" name="stock.stock_id" value="@Model.stock.stock_id" /></td>
+                    <td>
+                        Stock Name
+                    </td>
+                    <td>
+                        <input type="text" name="stock.stock_name" value="@Model.stock.stock_name" readonly />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Stock Price
+                    </td>
+                    <td>
+                        <input type="text" name="stock.stock_price" value="@Model.stock.stock_price" readonly />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Stock Quantity
+                    </td>
+                    <td>
+                        <input type="number" name="stock.stock_quantity" value="@Model.stock.stock_quantity" readonly />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Quantity you have orderd
+                    </td>
+                    <td>
+                        <input type="number" name="quantity" value="@Model.quantity" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" value="Place Order" />
+                    </td>
+                </tr>
+
+
+            </table>
+        </div>
+    </div>
+
+
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,74 @@
+﻿* {
+    font-family: 'Roboto', sans-serif;
+}
+
+.container-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10%
+}
+::placeholder{
+    color:white;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #bbb8cd;
+}
+
+table {
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+td {
+    padding: 5px;
+    color: #00264d;
+}
+
+input[type="text"], input[type="password"], input[type="email"], input[type="number"], input[type="date"] {
+    padding: 5px;
+    width: 200px;
+    background-color: #385273;
+    border: none;
+    color: white;
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 7px;
+    background-color: #00264d;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+td:last-child {
+    text-align: center;
+    color: #00264d;
+}
+
+.homeButton {
+    margin-top: -15px;
+    margin-left: 15px;
+    padding: 15px 6px 6px 6px;
+    border-radius: 0 0 5px 5px;
+    background-color: #00264d;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+    .homeButton a {
+        text-decoration: none;
+        color: white;
+    }
